@@ -848,6 +848,13 @@ var FIT = exports.FIT = {
       9: { field: 'o2_toxicity', type: 'uint16', scale: null, offset: 0, units: 'OTUs' },
       10: { field: 'dive_number', type: 'uint32', scale: null, offset: 0, units: '' },
       11: { field: 'bottom_time', type: 'uint32', scale: null, offset: 0, units: 's' }
+    },
+    65284: {
+      name: 'wahoo_custom',
+      0: { field: 'value', type: 'float64', scale: null, offset: 0, units: '' },
+      1: { field: 'timestamp', type: 'date_Time', scale: null, offset: 0, units: 's' },
+      2: { field: 'sub_type', type: 'uint16', scale: null, offset: 0, units: '' },
+      3: { field: 'type', type: 'wahoo_message_value_type', scale: null, offset: 0, units: '' }
     }
   },
   types: {
@@ -4246,6 +4253,35 @@ var FIT = exports.FIT = {
     favero_product: {
       10: 'assioma_uno',
       12: 'assioma_duo'
+    },
+    workout_gnss_aiding_and_fix: {
+      0: 'lle_validity_last_check_time_ms',
+      1: 'lle_validity_last_check_rem_min',
+      2: 'lle_last_bxca_rx_time',
+      3: 'location_bxca_last_rx_time',
+      4: 'location_bxca_last_latitude',
+      5: 'location_bxca_last_longitude',
+      6: 'location_bxca_last_altitude',
+      7: 'location_used_saved_time',
+      8: 'location_used_latitude',
+      9: 'location_used_longitude',
+      10: 'location_used_altitude',
+      11: 'gnss_startup_lle_validity',
+      12: 'gnss_startup_first_lock_time_sec',
+      13: 'gnss_startup_first_lock_latitude',
+      14: 'gnss_startup_first_lock_longitude',
+      15: 'gnss_startup_first_lock_altitude',
+      16: 'gnss_startup_first_lock_hor_accuracy',
+      17: 'gnss_startup_10sec_hor_accuracy',
+      18: 'gnss_startup_30sec_hor_accuracy',
+      19: 'gnss_error_nmea_recovered',
+      20: 'gnss_error_nmea_timeout'
+    },
+    wahoo_message_value_type: {
+      0: 'track_cfg',
+      1: 'extended_device_info',
+      2: 'workout_gnss_aiding_and_fix',
+      3: 'edits'
     }
   }
 };

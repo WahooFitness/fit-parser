@@ -105,6 +105,7 @@ var FitParser = function () {
       var file_ids = [];
       var monitor_info = [];
       var lengths = [];
+      var wahoo_custom = [];
 
       var tempLaps = [];
       var tempLengths = [];
@@ -217,6 +218,9 @@ var FitParser = function () {
           case 'software':
             fitObj.software = message;
             break;
+          case 'wahoo_custom':
+            wahoo_custom.push(message);
+            break;
           default:
             if (messageType !== '') {
               fitObj[messageType] = message;
@@ -254,6 +258,7 @@ var FitParser = function () {
         fitObj.file_ids = file_ids;
         fitObj.monitor_info = monitor_info;
         fitObj.definitions = definitions;
+        fitObj.wahoo_custom = wahoo_custom;
       }
 
       callback(null, fitObj);

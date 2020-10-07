@@ -89,6 +89,7 @@ export default class FitParser {
     const file_ids = [];
     const monitor_info = [];
     const lengths = [];
+    const wahoo_custom = [];
 
     let tempLaps = [];
     let tempLengths = [];
@@ -198,6 +199,9 @@ export default class FitParser {
         case 'software':
           fitObj.software = message;
           break;
+        case 'wahoo_custom':
+          wahoo_custom.push(message);
+          break;
         default:
           if (messageType !== '') {
             fitObj[messageType] = message;
@@ -235,6 +239,7 @@ export default class FitParser {
       fitObj.file_ids = file_ids;
       fitObj.monitor_info = monitor_info;
       fitObj.definitions = definitions;
+      fitObj.wahoo_custom = wahoo_custom;
     }
 
     callback(null, fitObj);

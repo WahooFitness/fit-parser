@@ -74,4 +74,26 @@ describe('fit parser tests', function () {
             });
         });
     });
+
+    it('expects custom messages to be parsed', function (done) {
+        this.timeout(5000);
+        var fitParser = new _fitParser2.default({ force: true });
+        _fs2.default.readFile('./test/running-with-wahoo-custom.fit', function (err, buffer) {
+            if (err) {
+                throw "Unable to read file";
+            }
+            fitParser.parse(buffer, function (fitError, fitObject) {
+                if (fitError) {
+                    throw "Error parsing";
+                }
+                //console.log(fitObject);
+                (0, _chai.expect)(fitObject).to.have.property('wahoo_custom');
+                (0, _chai.expect)(fitObject.wahoo_custom[0]).to.have.property('value');
+                (0, _chai.expect)(fitObject.wahoo_custom[0]).to.have.property('sub_type');
+                (0, _chai.expect)(fitObject.wahoo_custom[0]).to.have.property('type');
+
+                done();
+            });
+        });
+    });
 });
